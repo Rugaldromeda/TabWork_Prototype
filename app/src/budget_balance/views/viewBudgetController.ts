@@ -1,4 +1,4 @@
-import { BudgetControl } from "../controllers/budget-controller.js";
+import { BudgetControl } from "../controllers/Budget-controller.js";
 
 
     

@@ -6,6 +6,7 @@ export class TabworkView {
         this.tabContents = tabSpace;
     }
     templateTab(model) {
+        this.tabContents.innerHTML = "";
         const spaceTabs = document.createElement("div");
         spaceTabs.classList.add("tabs");
         const buttonCreateTab = document.createElement("button");
@@ -28,14 +29,7 @@ export class TabworkView {
             newTab.appendChild(deletTab);
             spaceTabs.appendChild(newTab);
         });
-        const checkTabs = this.tabContents.querySelector(".tabs");
-        if (checkTabs == undefined) {
-            return spaceTabs;
-        }
-        else {
-            checkTabs.remove();
-            return spaceTabs;
-        }
+        return spaceTabs;
     }
     templateContent(model) {
         const spaceContent = document.createElement("div");

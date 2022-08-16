@@ -1,5 +1,5 @@
 "use strict"
-import { BudgetControl } from "../../budget_balance/controllers/budget-controller.js";
+import { BudgetControl } from "../../budget_balance/controllers/Budget-controller.js";
 import { viewBudgetController } from "../../budget_balance/views/viewBudgetController.js";
 import { activeModal } from "../../functions/modalBox.js";
 import { ListTabworks } from "../models/listTabworks.js";
@@ -15,6 +15,8 @@ export class TabworkView {
     }
 
     templateTab(model:ListTabworks) {
+
+        this.tabContents.innerHTML = "";
 
         const spaceTabs = document.createElement("div");
         spaceTabs.classList.add("tabs");
@@ -44,18 +46,8 @@ export class TabworkView {
               
         });
 
-        const checkTabs = this.tabContents.querySelector(".tabs");
-        if(checkTabs == undefined){
-          return spaceTabs;  
-        }
-        else{
-            checkTabs.remove();
-            return spaceTabs;
-        }
-        
-        /*`
-            <button class="" data-add-worksheet>Criar Planilha</button>
-             `*/
+       
+        return spaceTabs;
 
     }
     

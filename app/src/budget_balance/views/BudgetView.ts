@@ -1,5 +1,5 @@
 "use strict"
-import { ListBudgets } from "../models/listBudgets.js";
+import { ListBudgets } from "../models/ListBudgets.js";
 
 export class BudgetView {
 
@@ -13,6 +13,7 @@ export class BudgetView {
     }
 
     templateTab(model:ListBudgets) {
+        this.tabContents.innerHTML = "";
 
         const spaceTabs = document.createElement("div");
         spaceTabs.classList.add("tabs");

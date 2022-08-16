@@ -1,6 +1,7 @@
 "use strict";
-import { ListBudgets } from "../models/listBudgets.js";
-import { ModelBudget } from "../models/modelBudget.js";
+import { ControlInputTable } from "../../create_inputs/controllers/control_input_table.js";
+import { ListBudgets } from "../models/ListBudgets.js";
+import { ModelBudget } from "../models/ModelBudget.js";
 import { BudgetView } from "../views/BudgetView.js";
 export class BudgetControl {
     constructor(nameArea) {
@@ -14,7 +15,7 @@ export class BudgetControl {
         this.budgetView.update(this.listBudget);
     }
     createBudget(data) {
-        return new ModelBudget(data);
+        return new ModelBudget(data, new ControlInputTable());
     }
     get listB() {
         return this.listBudget;

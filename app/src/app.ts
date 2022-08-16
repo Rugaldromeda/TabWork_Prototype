@@ -1,5 +1,5 @@
 "use strict"
-import { constructorTabwork } from "./create_tabwork/controllers/constructor-tabwork.js";
+import { constructorTabwork } from "./create_tabwork/controllers/Constructor-tabwork.js";
 import { closeModal } from "./functions/modalBox.js";
 import { closeContent, tabActive } from "./functions/tabs.js";
 

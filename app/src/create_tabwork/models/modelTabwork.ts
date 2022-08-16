@@ -1,5 +1,5 @@
 "use strict"
-import { BudgetControl } from "../../budget_balance/controllers/budget-controller.js";
+import { BudgetControl } from "../../budget_balance/controllers/Budget-controller.js";
 
 export class ModelTabwork {
     private nameTabwork:string;

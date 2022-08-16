@@ -1,5 +1,6 @@
 "use strict";
 export class ModelInput {
-    constructor() {
+    constructor(model) {
+        this.modelInput = model;
     }
 }

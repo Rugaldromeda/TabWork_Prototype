@@ -4,6 +4,7 @@ export class BudgetView {
         this.tabContents = tabSpace;
     }
     templateTab(model) {
+        this.tabContents.innerHTML = "";
         const spaceTabs = document.createElement("div");
         spaceTabs.classList.add("tabs");
         model.list.map((w) => {

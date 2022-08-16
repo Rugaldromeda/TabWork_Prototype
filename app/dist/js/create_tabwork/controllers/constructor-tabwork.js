@@ -1,6 +1,6 @@
 "use strict";
-import { ModelTabwork } from "../models/ModelTabwork.js";
-import { ListTabworks } from "../models/listTabworks.js";
+import { ModelTabwork } from "../models/modelTabwork.js";
+import { ListTabworks } from "../models/ListTabworks.js";
 import { TabworkView } from "../views/TabworkView.js";
 export class constructorTabwork {
     constructor() {

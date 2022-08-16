@@ -1,7 +1,11 @@
 "use strict"
 
+import { Iinput } from "../../interfaces/IInputs.js"
+
 export class ModelInput{
-    constructor(){
-        
+    private modelInput:Iinput;
+
+    constructor(model:Iinput){
+        this.modelInput = model;
     }
 }
