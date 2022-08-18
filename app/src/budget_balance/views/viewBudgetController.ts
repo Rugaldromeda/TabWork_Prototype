@@ -41,6 +41,7 @@ export const viewBudgetController = (name:string,Control:BudgetControl) =>{
         const type = formWController.querySelector(".type") as HTMLFormElement;
         
         
+        
         formWController.addEventListener("submit", (event) =>{
             event.preventDefault();
             Control.add(nameArea.value, type.value);

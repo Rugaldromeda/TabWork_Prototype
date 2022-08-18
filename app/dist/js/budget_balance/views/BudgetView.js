@@ -1,7 +1,7 @@
 "use strict";
 export class BudgetView {
-    constructor(tabSpace) {
-        this.tabContents = tabSpace;
+    constructor(tabName) {
+        this.tab_name = tabName;
     }
     templateTab(model) {
         this.tabContents.innerHTML = "";
@@ -10,6 +10,7 @@ export class BudgetView {
         model.list.map((w) => {
             const newTab = document.createElement("button");
             newTab.classList.add(`tabs__button`);
+            newTab.classList.add(`${this.tab_name}`);
             newTab.classList.add(`tabs__${w.data.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
             newTab.classList.add(`${w.data.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
             newTab.innerHTML = `${w.data.name}`;
@@ -23,8 +24,27 @@ export class BudgetView {
         return spaceTabs;
     }
     templateContent(model) {
+        const spaceContents = document.createElement("section");
+        spaceContents.classList.add("contents");
+        model.list.map((b) => {
+            const areaContent = document.createElement("section");
+            areaContent.classList.add("tab__content");
+            areaContent.classList.add(`${this.tab_name}`);
+            areaContent.setAttribute("id", `tabs__${b.data.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
+            areaContent.classList.add("invisible");
+            const areaInput = document.createElement("div");
+            const areaTable = document.createElement("div");
+            areaContent.appendChild(areaInput);
+            areaContent.appendChild(areaTable);
+            spaceContents.appendChild(areaContent);
+        });
+        return spaceContents;
     }
     update(model) {
-        this.tabContents.appendChild(this.templateTab(model));
+        this.tabContents = document.querySelector(`[data-${this.tab_name}]`);
+        if (model.list.length !== 0 && this.tabContents !== null) {
+            this.tabContents.appendChild(this.templateTab(model));
+            this.tabContents.appendChild(this.templateContent(model));
+        }
     }
 }

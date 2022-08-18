@@ -19,6 +19,7 @@ export class TabworkView {
         model.list.map((w) => {
             const newTab = document.createElement("button");
             newTab.classList.add(`tabs__button`);
+            newTab.classList.add(`tabwork`);
             newTab.classList.add(`tabs__${w.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
             newTab.classList.add(`${w.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
             newTab.innerHTML = `${w.name}`;
@@ -37,6 +38,7 @@ export class TabworkView {
         model.list.map((w) => {
             const newContent = document.createElement("div");
             newContent.classList.add("tab__content");
+            newContent.classList.add("tabwork");
             newContent.classList.add("invisible");
             newContent.setAttribute("id", `tabs__${w.name.replace(/\s+/g, '').replace(/\.+/g, '')}`);
             const spaceTabworks = document.createElement("div");
@@ -45,18 +47,12 @@ export class TabworkView {
             newContent.appendChild(spaceTabworks);
             spaceContent.appendChild(newContent);
         });
-        const checkContents = this.tabContents.querySelector(".contents");
-        if (checkContents == undefined) {
-            return spaceContent;
-        }
-        else {
-            checkContents.remove();
-            return spaceContent;
-        }
+        return spaceContent;
     }
     update(model) {
         this.tabContents.appendChild(this.templateTab(model));
         this.tabContents.appendChild(this.templateContent(model));
+        model.list.map((w) => w.tabworkControl.update());
     }
     _formTabworkController(nameWorksheet, tabworkControl) {
         return viewBudgetController(nameWorksheet, tabworkControl);

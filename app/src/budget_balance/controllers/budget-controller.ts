@@ -1,5 +1,7 @@
 "use strict"
 import { ControlInputTable } from "../../create_inputs/controllers/control_input_table.js";
+import { initTabs } from "../../functions/initTabs.js";
+
 import { IBudget } from "../../interfaces/Ibudget.js";
 import { ListBudgets } from "../models/ListBudgets.js";
 import { ModelBudget } from "../models/ModelBudget.js";
@@ -12,9 +14,9 @@ export class BudgetControl {
     constructor(nameArea:string){
 
         this.name_budget = nameArea.toLowerCase().replace(/\s+/g, '').replace(/\.+/g , '');
-        
+        this.budgetView = new BudgetView(this.name_budget);
         this.listBudget = new ListBudgets();
-        
+        this.budgetView.update(this.listB);
         
     }
 
@@ -22,10 +24,9 @@ export class BudgetControl {
         
         this.listBudget.add(this.createBudget({name, type}));
         
-        const areaTabWork = document.querySelector(`[data-${this.name_budget}]`) as HTMLElement;
-        this.budgetView = new BudgetView(areaTabWork);
         this.budgetView.update(this.listBudget);
-        
+
+        initTabs();
         
     }
 
@@ -35,5 +36,9 @@ export class BudgetControl {
 
     get listB(){
         return this.listBudget;
+    }
+    
+    update(){
+        this.budgetView.update(this.listBudget);
     }
 }
