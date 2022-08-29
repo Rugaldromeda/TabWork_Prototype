@@ -8,7 +8,7 @@ export class constructorTabwork {
         this.nameWorksheet = $('[data-name-worksheet]');
         this.typeWorksheet = $('[data-type-worksheet]');
         this.listTabwork = new ListTabworks();
-        this.tabworkView = new TabworkView($('.budget'));
+        this.tabworkView = new TabworkView($('.tabwork'));
         this.tabworkView.update(this.listTabwork);
     }
     add() {

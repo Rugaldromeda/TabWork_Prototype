@@ -17,7 +17,7 @@ export class constructorTabwork {
 
         this.listTabwork = new ListTabworks();
         
-        this.tabworkView = new TabworkView($('.budget'));
+        this.tabworkView = new TabworkView($('.tabwork'));
         this.tabworkView.update(this.listTabwork);
         
         

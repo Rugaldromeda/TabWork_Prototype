@@ -1,20 +1,23 @@
-.budget {
-    display: grid;
+.tabwork {
+    display: flex;
+    flex-flow: row wrap;
     align-content: center;
-    padding: 20px;
 }
 .invisible {
     display: none !important;
 }
 
 .modalbox_add{
+    position: fixed;
+    background-color: white;
     border: solid 1px red;
     width: 400px;
     padding: 20px;
     display: flex;
+    top: 20px;
     margin: 0 35%;
     float: left;
-    z-index: 99;
+    z-index: 999;
 }
 
 .close__delete {
@@ -26,4 +29,8 @@
 
 .area{
     width: 200px;
+}
+
+.contents{
+    flex-grow: 2;
 }
